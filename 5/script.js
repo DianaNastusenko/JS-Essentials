@@ -21,9 +21,9 @@ function d(prop){
 
 
 //e(55)() => 55, e(123)() => 123
-function e(a)(){
+function e(a){
     return function () {
-        return x;
+        return a;
     }
 }
 
