@@ -83,6 +83,6 @@ function n(x) {
     return function x(y) {
         return funtion y(z) {
             return x + y + z;
-        }
-    }
+        };
+    };
 }
