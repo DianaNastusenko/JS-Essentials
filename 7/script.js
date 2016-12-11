@@ -1,18 +1,18 @@
-function startGame(){
+function startGame() {
     var playAgain = confirm("Do you want play the game?");
-        if (!playAgain) {
+    if (!playAgain) {
         console.log("Today you will not win the jackpot, but you could");
     }
     return playAgain;
 }
 
-function continueGame(){
+function continueGame() {
     var play = confirm('Do you want to play the game again?');
     return play;
 }
 
 function generateNumberByComputer() {
-    return Math.floor(Math.random()*5)
+    return Math.floor(Math.random() * 5)
 }
 
 function askUserTheNumber() {
@@ -33,36 +33,35 @@ function isEqual(numbByComputer, numbByUser) {
 }
 
 
-function playGame(countOfGame,computerNumber){
-    var price = 10 , userWin = 0;
+function playGame(countOfGame, computerNumber) {
+    var price = 10,
+        userWin = 0;
     for (var i = 0; i < 3; i++) {
-            userNumber = askUserTheNumber();
-            var isWin = isEqual(computerNumber, userNumber);
-            if (isWin) {
-                if(countOfGame==1)
-                    {
-                        userWin+=price*countOfGame;
-                    }
-                else {
-                    userWin+=price*countOfGame*3;
-                }
-                break;
+        userNumber = askUserTheNumber();
+        var isWin = isEqual(computerNumber, userNumber);
+        if (isWin) {
+            if (countOfGame == 1) {
+                userWin += price * countOfGame;
+            } else {
+                userWin += price * countOfGame * 3;
             }
-        price=Math.floor(price/2);
+            break;
+        }
+        price = Math.floor(price / 2);
     }
-    console.log("your win - "+ userWin+"$")
+    console.log("your win - " + userWin + "$")
 }
 
 function main() {
     var playing = startGame();
-    var countOfGame=1;
+    var countOfGame = 1;
     while (playing) {
         var computerNumber = generateNumberByComputer();
-        playGame(countOfGame,computerNumber)
+        playGame(countOfGame, computerNumber)
         countOfGame++;
-        playing=continueGame();
+        playing = continueGame();
     }
-    var countOfGame=1;
+    var countOfGame = 1;
 }
 
 main();
