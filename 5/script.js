@@ -80,8 +80,8 @@ function m(arr1, arr2) {
 
 //n(1)(2)(3) => 6, n(5)(25)(8) => 38, n(3)(-5)(0) => -2, typeof a() => number
 function n(x) {
-    return function x(y) {
-        return funtion y(z) {
+    return function(y) {
+        return funtion(z) {
             return x + y + z;
         };
     };
