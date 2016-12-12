@@ -5,6 +5,7 @@ function generateNumberByComputer() {
 
 function askUserTheNumber() {
     var resultOfQuestion = prompt("Please, enter the number");
+    
     return resultOfQuestion;
 }
 
@@ -25,12 +26,16 @@ function main() {
     while (1) {
         var computerNumber = generateNumberByComputer();
         var userNumber = askUserTheNumber();
+        
         if (!userNumber) {
             return;
         }
         var bool = isEqual(computerNumber, userNumber);
         while (!bool) {
             userNumber = askUserTheNumber();
+        if (!userNumber) {
+            return;
+        }
             bool = isEqual(computerNumber, userNumber);
         }
         var playAgain = prompt("Do you want play again? (1-yes; 0-no)");
