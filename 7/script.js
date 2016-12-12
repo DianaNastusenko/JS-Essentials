@@ -17,8 +17,9 @@ function generateNumberByComputer() {
 
 function askUserTheNumber() {
     var resultOfQuestion = prompt("Please, enter the number from 0 to 5");
-    while (!resultOfQuestion)
-        resultOfQuestion = prompt("Please, enter the number from 0 to 5");
+    while (!(resultOfQuestion<=5&&resultOfQuestion>=0)){
+        resultOfQuestion = prompt("You have entered an incorrect value! Please, enter the number from 0 to 5");
+    }
     return resultOfQuestion;
 }
 
@@ -38,6 +39,9 @@ function playGame(countOfGame, computerNumber) {
         userWin = 0;
     for (var i = 0; i < 3; i++) {
         userNumber = askUserTheNumber();
+        if (!userNumber){
+            return false;
+        }
         var isWin = isEqual(computerNumber, userNumber);
         if (isWin) {
             if (countOfGame == 1) {
@@ -57,7 +61,7 @@ function main() {
     var countOfGame = 1;
     while (playing) {
         var computerNumber = generateNumberByComputer();
-        playGame(countOfGame, computerNumber)
+        playGame(countOfGame, computerNumber);
         countOfGame++;
         playing = continueGame();
     }
